@@ -38,3 +38,29 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+## 📌 DingTalk 配置
+
+**钉钉用户 ID（unionId）：** `48265002531121290`
+
+> ⚠️ **重要：** 创建钉钉提醒时必须使用完整的用户 ID，不要用截断的版本！
+
+### 创建钉钉提醒的标准命令：
+
+```bash
+openclaw cron add --name "提醒名称" \
+  --cron "0 21 * * *" \
+  --tz "Asia/Shanghai" \
+  --session isolated \
+  --deliver \
+  --message "提醒内容" \
+  --channel dingtalk \
+  --to "48265002531121290"
+```
+
+### 当前提醒任务：
+
+| 任务 | ID | 时间 | 用户 ID |
+|------|----|------|--------|
+| 穿衣服提醒 | `abd81216-decc-4712-81d2-520406219624` | 每天 10:06 | 48265002531121290 |
+| 关窗户提醒 | `8b10d45f-d2ef-444f-84ea-47765dd170fc` | 每天 21:00 | 48265002531121290 |
