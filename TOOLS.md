@@ -39,6 +39,25 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 Add whatever helps you do your job. This is your cheat sheet.
 
+## 📷 USB 摄像头拍照流程
+
+**标准命令：**
+```bash
+# 1. 释放摄像头占用
+fuser -k /dev/video0 2>&1
+sleep 1
+
+# 2. 拍照
+ffmpeg -y -f v4l2 -input_format mjpeg -video_size 1280x720 -i /dev/video0 -frames:v 1 -update 1 ~/.openclaw/workspace/camera_snapshot.jpg 2>&1
+
+# 3. 发送到钉钉
+openclaw message send --channel dingtalk --to "48265002531121290" --file ~/.openclaw/workspace/camera_snapshot.jpg --caption "📷 摄像头快照"
+```
+
+**技能文件：** `skills/camera-snapshot/SKILL.md`
+
+---
+
 ## 📌 DingTalk 配置
 
 **钉钉用户 ID（unionId）：** `48265002531121290`
